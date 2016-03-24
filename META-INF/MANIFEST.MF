@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.gardner.datadogsubmitter;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-Name: Datadog Submitter
+Bundle-ClassPath: .,lib/com.dynatrace.diagnostics.sdk.jar,lib/commons-
+ codec-1.10.jar
+Require-Bundle: com.dynatrace.diagnostics.sdk
+Bundle-ManifestVersion: 2
+Bundle-Vendor: Dynatrace
+

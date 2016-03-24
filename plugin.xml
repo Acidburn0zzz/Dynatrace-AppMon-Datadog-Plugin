@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<!-- plugin.xml file written by dynaTrace Client 6.2.5 -->
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.gardner.datadogsubmitter" name="Datadog Submitter">
+    <information>
+      <category value="" />
+      <displayname value="Datadog Submitter" />
+      <description value="Send measures to Datadog simply by creating a Dynatrace dashboard." />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="datadogAPIKey" label="Datadog API Key" type="password" description="Your Datadog API Key" default="" />
+      <property key="dynatrace_base_url" label="Dynatrace Report Base URL" type="url" description="Base URL to the REST / dashboard interface. Include trailing slash&#xA;eg. http://YOUR-DT-SERVER-ADDRESS:8020/rest/management/dashboard/" default="http://localhost:8020/rest/management/dashboard/" />
+      <property key="dynatrace_dashboard_username" label="Dynatrace Dashboard Username" type="string" description="The username of the user which will access the dashboard" default="username" multiline="false" />
+      <property key="dynatrace_dashboard_user_password" label="Dynatrace Dashboard User Password" type="password" description="The password for the user account" default="" />
+      <property key="dynatrace_dashboard_name" label="Dashboard Name" type="string" description="The name of the dashboard (as saved on the Dynatrace server) which you wish to query.&#xA;It is highly recommended to save your dashboards without space characters. Use underscores (_) or dashes (-) instead.&#xA;eg. My-Dashboard-Name    or    My_Dashboard_Name" default="default" multiline="false" />
+      <property key="dynatrace_measure_list" label="Measures To Send" type="string" description="The list of measure names (one per line) that you wish to send to Datadog.&#xA;Alternatively, use ALL_MEASURES to send all measures on the selected dashboard." default="measure 1&#xD;&#xA;measure 2&#xD;&#xA;OR&#xD;&#xA;ALL_MEASURES" multiline="true" />
+      <property key="dt_measure_append_value" label="Measure Append Value" type="string" description="This value will be appended to each measure making identification easier in datadog.&#xA;eg. An append value of &quot;_dynatrace&quot; and a measure name of &quot;Homepage Response Time&quot; would be result in a datadog measure of &quot;Homepage_Response_Time_dynatrace&quot;" default="" multiline="false" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.task" id="com.gardner.datadogsubmitter.task" name="Datadog Submitter">
+    <plugin configid="com.gardner.datadogsubmitter" class="com.gardner.datadogsubmitter.DatadogSubmitter" />
+  </extension>
+</plugin>

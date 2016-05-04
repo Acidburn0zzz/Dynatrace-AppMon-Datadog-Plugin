@@ -1,4 +1,4 @@
-# Datadog_Submitter
+## Datadog Plugin
 This plugin sends any chartable Dynatrace measure from a chart to Datadog.
 
 ## How to Use
